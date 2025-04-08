@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "spec_helper"
 
 module Delight
@@ -44,6 +46,20 @@ module Delight
 
         expect(data.select_by(age: 10))
           .to eq []
+      end
+
+      it "matches on all passed fields" do
+        stub = Struct.new(:name, :age)
+
+        data = [
+          stub.new("John", 30),
+          stub.new("Doe", 30),
+        ]
+
+        expect(data.select_by(age: 30, name: "John"))
+          .to eq [
+            stub.new("John", 30),
+          ]
       end
     end
   end
