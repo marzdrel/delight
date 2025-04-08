@@ -3,6 +3,10 @@
 require_relative "delight/version"
 
 module Delight
-  class Error < StandardError; end
-  # Your code goes here...
 end
+
+require "zeitwerk"
+
+loader = Zeitwerk::Loader.for_gem
+loader.setup
+loader.eager_load
