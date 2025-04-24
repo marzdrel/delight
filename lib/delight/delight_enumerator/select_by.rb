@@ -1,6 +1,6 @@
 module Delight
   module DelightEnumerator
-    module ByMethods
+    module SelectBy
       include CollectionMatcher
 
       def select_by(**)

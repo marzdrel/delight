@@ -2,7 +2,7 @@ module Delight
   module DelightEnumerator
     refine Enumerable do
       import_methods CollectionMatcher
-      import_methods ByMethods
+      import_methods SelectBy
     end
   end
 end
