@@ -17,14 +17,14 @@ module Delight
     it "provides detect_by!" do
       expect { [].detect_by! }
         .to raise_error(
-          described_class::DetectBang::ElementNotFound,
+          DelightEnumerator::Error::ElementNotFound,
         )
     end
 
     it "provides detect_by_key!" do
       expect { [].detect_by_key! }
         .to raise_error(
-          described_class::DetectBang::ElementNotFound,
+          DelightEnumerator::Error::ElementNotFound,
         )
     end
   end
