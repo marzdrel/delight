@@ -4,8 +4,14 @@ module Delight
       include CollectionMatcher
 
       def sole_by(**)
+        sole_by_implementation(:collection_matcher, **)
+      end
+
+      private
+
+      def sole_by_implementation(searcher, **)
         results = lazy.select do |element|
-          collection_matcher(element, **)
+          public_send(searcher, element, **)
         end
 
         found, undesired = results.first(2)

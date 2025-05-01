@@ -5,11 +5,17 @@ module Delight
       import_methods HashCollectionMatcher
 
       import_methods SelectBy
-      import_methods DetectBy
-      import_methods DetectBang
       import_methods SelectByKey
+
+      import_methods DetectBang
+      import_methods DetectBy
       import_methods DetectByKey
+
       import_methods SoleBy
+      import_methods SoleByKey
+
+      # import_methods TrySoleBy
+      # import_methods TrySoleByKey
     end
   end
 end
