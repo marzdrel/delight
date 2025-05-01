@@ -61,7 +61,7 @@ module Delight
         ]
 
         expect { data.detect_by_key!(age: 10) }
-          .to raise_error described_class::DetectBang::ElementNotFound
+          .to raise_error Delight::DelightEnumerator::DetectBang::ElementNotFound
       end
 
       it "matches on all passed fields" do
