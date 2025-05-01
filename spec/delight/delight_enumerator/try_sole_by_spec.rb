@@ -4,11 +4,11 @@ require "spec_helper"
 
 module Delight
   module DelightEnumerator
-    RSpec.describe SoleBy do
+    RSpec.describe TrySoleBy do
       using DelightEnumerator
 
-      describe "#sole_by" do
-        it "fails when multiple elements are found" do
+      describe "#try_sole_by" do
+        it "selects using a method" do
           stub = Struct.new(:name, :age)
 
           data = [
@@ -18,7 +18,7 @@ module Delight
             stub.new("Doe", 40),
           ]
 
-          expect { data.sole_by(age: 30) }
+          expect { data.try_sole_by(age: 30) }
             .to raise_error Error::SoleItemExpected
         end
 
@@ -30,11 +30,11 @@ module Delight
             stub.new("Doe", 40),
           ]
 
-          expect { data.sole_by(lastname: 30) }
+          expect { data.try_sole_by(lastname: 30) }
             .to raise_error NoMethodError, /undefined method/
         end
 
-        it "fails when no element is found" do
+        it "returns no values when no match" do
           stub = Struct.new(:name, :age)
 
           data = [
@@ -42,8 +42,8 @@ module Delight
             stub.new("Doe", 40),
           ]
 
-          expect { data.sole_by(age: 50) }
-            .to raise_error Error::ElementNotFound
+          expect(data.try_sole_by(age: 50))
+            .to be_nil
         end
 
         it "matches on all passed fields" do
@@ -54,7 +54,7 @@ module Delight
             stub.new("Doe", 30),
           ]
 
-          expect(data.sole_by(age: 30, name: "John"))
+          expect(data.try_sole_by(age: 30, name: "John"))
             .to eq(stub.new("John", 30))
         end
       end

@@ -14,7 +14,7 @@ module Delight
       import_methods SoleBy
       import_methods SoleByKey
 
-      # import_methods TrySoleBy
+      import_methods TrySoleBy
       # import_methods TrySoleByKey
     end
   end
