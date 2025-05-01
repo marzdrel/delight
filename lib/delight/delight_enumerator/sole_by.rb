@@ -4,9 +4,19 @@ module Delight
       include CollectionMatcher
 
       def sole_by(**)
-        element, rest = select do |element|
+        results = lazy.select do |element|
           collection_matcher(element, **)
         end
+
+        found, undesired = results.first(2)
+
+        if found.nil?
+          raise Error::ElementNotFound
+        elsif undesired
+          raise Error::SoleItemExpected, undesired
+        end
+
+        found
       end
     end
   end
