@@ -9,5 +9,23 @@ module Delight
     it "provides select_by" do
       expect([].select_by).to eq []
     end
+
+    it "provides select_by_key" do
+      expect([].select_by).to eq []
+    end
+
+    it "provides detect_by!" do
+      expect { [].detect_by! }
+        .to raise_error(
+          described_class::DetectBang::ElementNotFound,
+        )
+    end
+
+    it "provides detect_by_key!" do
+      expect { [].detect_by_key! }
+        .to raise_error(
+          described_class::DetectBang::ElementNotFound,
+        )
+    end
   end
 end
