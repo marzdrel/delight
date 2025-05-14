@@ -3,7 +3,7 @@ module Delight
     module HashCollectionMatcher
       def hash_collection_matcher(element, **kwargs)
         kwargs.all? do |key, value|
-          element.key?(key) && element.fetch(key) == value
+          element.key?(key) && value === element.fetch(key)
         end
       end
     end

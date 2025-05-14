@@ -39,7 +39,7 @@ module Delight
           { name: "Jane", age: 30 },
         ]
 
-        expect(data.select_by_key(age: 30, name: "John"))
+        expect(data.select_by_key(age: 30.., name: "John"))
           .to eq [
             { name: "John", age: 30 },
           ]
