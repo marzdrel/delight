@@ -1,8 +1,6 @@
 module Delight
   module Enumerator
     module SelectByKey
-      include HashCollectionMatcher
-
       def select_by_key(**)
         select do |element|
           hash_collection_matcher(element, **)

@@ -1,8 +1,6 @@
 module Delight
   module Enumerator
     module TrySoleBy
-      include CollectionMatcher
-
       def try_sole_by(**)
         try_sole_by_implementation(:collection_matcher, **)
       end

@@ -1,8 +1,6 @@
 module Delight
   module Enumerator
     module DetectBang
-      include CollectionMatcher
-
       # This method finds required element or raises error if the element is
       # not found. This is similar to sole, but returns first element (so
       # duplicates are possible) but doesn't need to traverse whole Array.
