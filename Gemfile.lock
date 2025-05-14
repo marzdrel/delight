@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    delight (0.1.4)
+    delight (0.1.5)
       zeitwerk (~> 2.6)
 
 GEM
