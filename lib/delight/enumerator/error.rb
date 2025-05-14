@@ -1,5 +1,5 @@
 module Delight
-  module DelightEnumerator
+  module Enumerator
     module Error
     end
   end

@@ -3,9 +3,9 @@
 require "spec_helper"
 
 module Delight
-  module DelightEnumerator
+  module Enumerator
     RSpec.describe SoleBy do
-      using DelightEnumerator
+      using Enumerator
 
       describe "#sole_by" do
         it "fails when multiple elements are found" do

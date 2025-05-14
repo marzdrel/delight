@@ -3,9 +3,9 @@
 require "spec_helper"
 
 module Delight
-  module DelightEnumerator
-    RSpec.describe DelightEnumerator do
-      using DelightEnumerator
+  module Enumerator
+    RSpec.describe Enumerator do
+      using Enumerator
 
       describe "#detect_by" do
         it "selects using a method" do

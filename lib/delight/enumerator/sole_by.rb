@@ -1,22 +1,24 @@
 module Delight
-  module DelightEnumerator
-    module TrySoleBy
+  module Enumerator
+    module SoleBy
       include CollectionMatcher
 
-      def try_sole_by(**)
-        try_sole_by_implementation(:collection_matcher, **)
+      def sole_by(**)
+        sole_by_implementation(:collection_matcher, **)
       end
 
       private
 
-      def try_sole_by_implementation(searcher, **)
+      def sole_by_implementation(searcher, **)
         results = lazy.select do |element|
           public_send(searcher, element, **)
         end
 
         found, undesired = results.first(2)
 
-        if undesired
+        if found.nil?
+          raise Error::ElementNotFound
+        elsif undesired
           raise Error::SoleItemExpected, undesired
         end
 

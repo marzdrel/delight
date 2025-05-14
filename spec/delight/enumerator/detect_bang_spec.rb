@@ -3,9 +3,9 @@
 require "spec_helper"
 
 module Delight
-  module DelightEnumerator
+  module Enumerator
     RSpec.describe DetectBang do
-      using DelightEnumerator
+      using Enumerator
 
       describe "#detect!" do
         it "selects using a method" do

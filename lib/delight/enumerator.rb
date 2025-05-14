@@ -1,5 +1,5 @@
 module Delight
-  module DelightEnumerator
+  module Enumerator
     refine Enumerable do
       import_methods CollectionMatcher
       import_methods HashCollectionMatcher

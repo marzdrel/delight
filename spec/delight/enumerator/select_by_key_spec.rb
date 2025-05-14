@@ -3,8 +3,8 @@
 require "spec_helper"
 
 module Delight
-  RSpec.describe DelightEnumerator::SelectByKey do
-    using DelightEnumerator
+  RSpec.describe Enumerator::SelectByKey do
+    using Enumerator
 
     describe "#select_by_key" do
       it "selects using a method" do

@@ -3,9 +3,9 @@
 require "spec_helper"
 
 module Delight
-  module DelightEnumerator
+  module Enumerator
     RSpec.describe TrySoleBy do
-      using DelightEnumerator
+      using Enumerator
 
       describe "#try_sole_by" do
         it "selects using a method" do

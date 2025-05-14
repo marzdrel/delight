@@ -1,5 +1,5 @@
 module Delight
-  module DelightEnumerator
+  module Enumerator
     module HashCollectionMatcher
       def hash_collection_matcher(element, **kwargs)
         kwargs.all? do |key, value|

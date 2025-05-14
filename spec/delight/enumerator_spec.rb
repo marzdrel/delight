@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Delight
-  RSpec.describe DelightEnumerator do
+  RSpec.describe Enumerator do
     using described_class
 
     it "provides select_by" do
@@ -17,14 +17,14 @@ module Delight
     it "provides detect_by!" do
       expect { [].detect_by! }
         .to raise_error(
-          DelightEnumerator::Error::ElementNotFound,
+          Enumerator::Error::ElementNotFound,
         )
     end
 
     it "provides detect_by_key!" do
       expect { [].detect_by_key! }
         .to raise_error(
-          DelightEnumerator::Error::ElementNotFound,
+          Enumerator::Error::ElementNotFound,
         )
     end
   end

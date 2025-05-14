@@ -3,9 +3,9 @@
 require "spec_helper"
 
 module Delight
-  module DelightEnumerator
+  module Enumerator
     RSpec.describe DetectByKey do
-      using DelightEnumerator
+      using Enumerator
 
       describe "#detect_by_keykey" do
         it "selects using a method" do
