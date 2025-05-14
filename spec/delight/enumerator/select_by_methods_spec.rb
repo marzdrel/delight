@@ -61,6 +61,35 @@ module Delight
             stub.new("John", 30),
           ]
       end
+
+      it "matches on range" do
+        stub = Struct.new(:name, :age)
+
+        data = [
+          stub.new("John", 11),
+          stub.new("Doe", 19),
+          stub.new("Doe", 34),
+        ]
+
+        expect(data.select_by(age: 18..))
+          .to eq [
+            stub.new("Doe", 19),
+            stub.new("Doe", 34),
+          ]
+      end
+
+      it "matches on range" do
+        stub = Struct.new(:name, :age)
+
+        data = [
+          18,
+          2.3,
+          "Alice",
+        ]
+
+        expect(data.select_by(itself: Numeric))
+          .to eq [18, 2.3]
+      end
     end
   end
 end

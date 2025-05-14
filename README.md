@@ -10,7 +10,58 @@ bundle add delight
 
 ## Usage
 
-[...]
+In order to import all available methods use the global `Delight::Enumerable` refinement.
+
+```ruby
+class MyClass
+  using Delight::Enumerable
+
+  def initialize(some_list)
+    @some_list = some_list
+  end
+
+  def my_method
+    some_list.select_by(country: "PL")
+  end
+end
+```
+
+### `.select_by`
+
+The `.select_by` method allows you to filter an array of objects based on a
+value(s) of single or multiple methods. Object in the collection must respond to
+the methods you are filtering by. Calling non-existing method will raise an
+`NoMethodError`.
+
+Following two examples are equivalent:
+
+```ruby
+addresses.select_by(country: "PL", city: "Warsaw")
+
+addresses.select do |address|
+  address.country == "PL" && address.city == "Warsaw"
+end
+```
+
+Object attributes are compared using `===` operator, so you can use any object
+that implements it. For example, you can use a range:
+
+```ruby
+addresses.select_by(age: 18..)
+
+addresses.select do |address|
+  address.age >= 18
+end
+```
+
+Warning, be aware of of the `===` operator behavior. For example, if you would
+like to filter out the object by class, you need to use the object itself as the
+argument, thus pass the `itself` method:
+
+```ruby
+[18, 2.5, "foo"].select_by(itself: Numeric)
+# => [18, 2.5]
+```
 
 ## Development
 
