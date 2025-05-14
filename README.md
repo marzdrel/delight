@@ -39,13 +39,14 @@ addresses.select_by(country: "PL", city: "Warsaw")
 addresses.select { it.country == "PL" && it.city == "Warsaw" }
 ```
 
-Values returned by methods are compared using `===` operator, so you can use
-any object that implements it. For example, you can use a range.
+Values are compared using `===` operator, so you can use any object that
+implements it. For example, you can use a range.
 
 ```ruby
 # Following examples are equivalent:
 addresses.select_by(age: 18..)
 addresses.select { it.age >= 18 }
+addresses.select { 18.. === it.age }
 ```
 
 Warning, be aware of of the `===` operator behavior. For example, if you would
