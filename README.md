@@ -2,7 +2,7 @@
 
 Delight is a Ruby gem offering small yet useful extensions to the core Ruby classes. Those extensions are implemented as Refinements, which means they are only available in the scope where they are explicitly activated. This allows you to use them without worrying about polluting the global namespace or causing conflicts with other gems.
 
-## [Installation](Installation)
+## Installation
 
 ```bash
 bundle add delight
@@ -38,29 +38,25 @@ Following two examples are equivalent:
 ```ruby
 addresses.select_by(country: "PL", city: "Warsaw")
 
-addresses.select do |address|
-  address.country == "PL" && address.city == "Warsaw"
-end
+addresses.select { it.country == "PL" && it.city == "Warsaw" }
 ```
 
-Object attributes are compared using `===` operator, so you can use any object
-that implements it. For example, you can use a range:
+Values returned by methods are compared using `===` operator, so you can use
+any object that implements it. For example, you can use a range:
 
 ```ruby
 addresses.select_by(age: 18..)
 
-addresses.select do |address|
-  address.age >= 18
-end
+addresses.select { it.age >= 18 }
 ```
 
 Warning, be aware of of the `===` operator behavior. For example, if you would
-like to filter out the object by class, you need to use the object itself as the
+like to filter out the object by its class, you need to use the object itself as the
 argument, thus pass the `itself` method:
 
 ```ruby
-[18, 2.5, "foo"].select_by(itself: Numeric)
-# => [18, 2.5]
+[18, 2.5, "foo"].select_by(itself: Numeric) # => [18, 2.5]
+[18, 2.5, "foo"].select { it.is_a?(Numeric) } # => [18, 2.5]
 ```
 
 ## Development
