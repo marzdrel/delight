@@ -1,6 +1,10 @@
 # Delight
 
-Delight is a Ruby gem offering small yet useful extensions to the core Ruby classes. Those extensions are implemented as Refinements, which means they are only available in the scope where they are explicitly activated. This allows you to use them without worrying about polluting the global namespace or causing conflicts with other gems.
+Delight is a **Ruby** gem offering small yet useful extensions to the core
+Ruby classes. Those extensions are implemented as **Refinements**, which means
+they are only available in the scope where they are explicitly activated. This
+allows you to use them without worrying about polluting the global namespace or
+causing conflicts with other gems.
 
 ## Installation
 
@@ -26,7 +30,7 @@ class MyClass
 end
 ```
 
-### `.select_by`
+### `Enumerable#select_by`
 
 The `.select_by` method allows you to filter an array of objects based on a
 value(s) of single or multiple methods. Object in the collection must respond to
@@ -59,6 +63,14 @@ argument, thus pass the `itself` method:
 [18, 2.5, "foo"].select { it.is_a?(Numeric) } # => [18, 2.5]
 ```
 
+### `Enumerable#detect_by`
+
+The `.detect_by` method allows you to find the first object in a collection, which
+has a method with a value(s) matching the given argument(s). It works the same way as
+the `.select_by` method, but returns the first matching object instead of an array. The
+`detect_by` is to `select_by` as `detect` is to `select`.
+
+```ruby
 ## Development
 
 [...]
