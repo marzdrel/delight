@@ -33,20 +33,18 @@ value(s) of single or multiple methods. Object in the collection must respond to
 the methods you are filtering by. Calling non-existing method will raise an
 `NoMethodError`.
 
-Following two examples are equivalent:
-
 ```ruby
+# Following examples are equivalent:
 addresses.select_by(country: "PL", city: "Warsaw")
-
 addresses.select { it.country == "PL" && it.city == "Warsaw" }
 ```
 
 Values returned by methods are compared using `===` operator, so you can use
-any object that implements it. For example, you can use a range:
+any object that implements it. For example, you can use a range.
 
 ```ruby
+# Following examples are equivalent:
 addresses.select_by(age: 18..)
-
 addresses.select { it.age >= 18 }
 ```
 
@@ -55,6 +53,7 @@ like to filter out the object by its class, you need to use the object itself as
 argument, thus pass the `itself` method:
 
 ```ruby
+# Following examples are equivalent:
 [18, 2.5, "foo"].select_by(itself: Numeric) # => [18, 2.5]
 [18, 2.5, "foo"].select { it.is_a?(Numeric) } # => [18, 2.5]
 ```
