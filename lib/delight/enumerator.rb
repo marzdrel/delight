@@ -4,7 +4,7 @@ module Delight
       import_methods CollectionMatcher
       import_methods HashCollectionMatcher
 
-      import_methods SelectBy
+      import_methods SelectByMethods
       import_methods SelectByKey
 
       import_methods DetectBang
