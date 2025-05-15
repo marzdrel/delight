@@ -30,12 +30,23 @@ class MyClass
 end
 ```
 
+### `Enumerable#detect!`
+
+The `.detect!` method is an extended version of the standard `.detect`. It will behave
+the same way as the standard `.detect` method, but it will also raise an error
+if no object is found. This is useful when you want to ensure that at least one
+object in the collection matches the given condition.
+
+```ruby
+```
+
+
 ### `Enumerable#select_by`
 
 The `.select_by` method allows you to filter an array of objects based on a
-value(s) of single or multiple methods. Object in the collection must respond to
-the methods you are filtering by. Calling non-existing method will raise an
-`NoMethodError`.
+value(s) of single or multiple method values. Object in the collection must
+respond to the methods you are filtering by. Calling non-existing method will
+raise an `NoMethodError`.
 
 ```ruby
 # Following examples are equivalent:
@@ -65,12 +76,12 @@ argument, thus pass the `itself` method:
 
 ### `Enumerable#detect_by`
 
-The `.detect_by` method allows you to find the first object in a collection, which
-has a method with a value(s) matching the given argument(s). It works the same way as
-the `.select_by` method, but returns the first matching object instead of an array. The
-`detect_by` is to `select_by` as `detect` is to `select`.
+The `.detect_by` method allows you to find the first object in a collection,
+which has a method (or methods) with value(s) matching the given
+argument(s). It works the same way as the `.select_by` method, but returns the
+first matching object instead of an array. The `detect_by` is to `select_by` as
+`detect` is to `select`.
 
-```ruby
 ## Development
 
 [...]
